@@ -30,6 +30,7 @@ jobs:
             - name: Run Project
               env:
                   COOKIE: ${{ secrets.COOKIE }}
+                  UID: ${{ secrets.UID }}
                   PUSH_PLUS_TOKEN: ${{ secrets.PUSH_PLUS_TOKEN }}
                   SUOHA: ${{ secrets.SUOHA }}
-              run: npm ci && node index.js "${COOKIE}" "${PUSH_PLUS_TOKEN}" "${SUOHA}"
+              run: npm ci && node index.js "${COOKIE}" "${UID}" "${PUSH_PLUS_TOKEN}" "${SUOHA}"
