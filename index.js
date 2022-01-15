@@ -1,7 +1,8 @@
 const fetch = require('node-fetch');
 const pushPlus = require('./pushPlus');
-
-let [cookie, push_plus_token, suoha] = process.argv.slice(2);
+const { autoGame } = require('./autoGame');
+let [cookie, uid, push_plus_token, suoha] = process.argv.slice(2);
+// let { cookie, uid, push_plus_token, suoha } = require('./config');
 if (!cookie) {
     console.error('请填写掘金cookie');
     return;
@@ -161,6 +162,7 @@ const allDarw = async () => {
         // 先去免费抽奖
         let msg = await drawFn();
         let msgxiqi = await xiqi();
+        await autoGame();
         let award;
         // 是否梭哈
         if (suoha) {
