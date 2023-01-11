@@ -128,6 +128,15 @@ const allDarw = async () => {
 
 // 签到
 (async () => {
+     // 查询今日是否已经签到
+    const today_status = await fetch('https://api.juejin.cn/growth_api/v1/get_today_status', {
+        headers,
+        method: 'GET',
+        credentials: 'include',
+    }).then((res) => res.json());
+
+    if (today_status.err_no !== 0) return Promise.reject('签到失败！');
+    if (today_status.data) return Promise.resolve('今日已经签到！');
     return Promise.resolve();
 })()
     .then((msg) => {
