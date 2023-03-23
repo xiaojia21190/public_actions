@@ -153,7 +153,7 @@ const allDarw = async () => {
         // 先去免费抽奖
         let msg = await drawFn();
         let msgxiqi = await xiqi();
-        await autoGame();
+//         await autoGame();
         let award;
         // 是否梭哈
         if (suoha) {
